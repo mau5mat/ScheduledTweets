@@ -10,4 +10,6 @@
 # which is safe.
 class User < ApplicationRecord
     has_secure_password
+
+    validates :email, presence: true, format: { with: /\A[^@\s]+@[^@\S]+\z/, message: "Must be a valid email address" }
 end
